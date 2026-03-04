@@ -51,7 +51,7 @@ layout: default
   </div>
 
   <div class="section center">
-    <button class="linkbtn" id="openAbstract">Abstract</button>
+    <button class="btn btn-ghost" id="openAbstract" type="button">Abstract</button>
   </div>
 
   <div class="video-wrap">
@@ -63,11 +63,36 @@ layout: default
   </div>
 
   <div class="bib-section">
-    <h2 class="bib-title">BibTeX</h2>
+    <div class="bib-head">
+      <h2 class="bib-title">BibTeX</h2>
+      <button class="copy-btn" id="copyBib" type="button">Copy</button>
+    </div>
+
     <div class="bib-box">
-      <pre><code>{{ page.bibtex }}</code></pre>
+      <pre id="bibText"><code>{{ page.bibtex }}</code></pre>
     </div>
   </div>
+
+  <script>
+  (function () {
+    const btn = document.getElementById("copyBib");
+    const pre = document.getElementById("bibText");
+    if (!btn || !pre) return;
+
+    btn.addEventListener("click", async () => {
+      const text = pre.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        const old = btn.innerText;
+        btn.innerText = "Copied";
+        setTimeout(() => (btn.innerText = old), 900);
+      } catch (e) {
+        btn.innerText = "Copy failed";
+        setTimeout(() => (btn.innerText = "Copy"), 900);
+        }
+      });
+    })();
+  </script>
 
   <div id="abstractModal" class="modal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="absTitle">

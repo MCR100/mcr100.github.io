@@ -4,7 +4,7 @@ title: LiPPSe
 permalink: /research/lippse/
 
 project_short_title: "LiPPSe: LiDAR based Probe Pose Seeding for Teleoperated Echocardiography"
-paper_title: "Finding an Initial Probe Pose in Teleoperated Robotic Echocardiography via 2D LiDAR Based 3D Reconstruction"
+paper_title: "Finding an Initial Probe Pose in Teleoperated Robotic<br>Echocardiography via 2D LiDAR Based 3D Reconstruction"
 venue: "ICRA 2026 (Accepted)"
 lab: "Intelligent Robotics Lab - Swinburne"
 
@@ -33,6 +33,7 @@ bibtex: |
     title={Finding an Initial Probe Pose in Teleoperated Robotic Echocardiography via 2D LiDAR-Based 3D Reconstruction},
     author={Roshan, Mariadas Capsran and Hidalgo, Edgar M and Isakssson, Mats and Dunn, Michelle and Pyaraka, Jagannatha Charjee},
     booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+    url={https://arxiv.org/abs/2509.24867}
     year={2025}
   }
 ---

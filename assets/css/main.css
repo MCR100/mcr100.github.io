@@ -57,9 +57,11 @@ body {
    TITLE + AUTHORS
 ======================= */
 
-.paper-title {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
+.paper-title{
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.25;
 }
 
 .authors a {
@@ -193,29 +195,60 @@ body {
   text-align: left;
 }
 
-.bib-section {
-  margin-top: 50px;
-  background: var(--blue-dark);
-  padding: 50px 20px;
-  border-radius: 14px;
+.bib-section{
+  margin-top: 46px;
+  padding: 26px 22px;
+  border-radius: 16px;
+
+  /* glassy light blue */
+  background: rgba(31, 60, 136, 0.08);
+  border: 1px solid rgba(31, 60, 136, 0.14);
+  backdrop-filter: blur(10px);
 }
 
-.bib-title {
+.bib-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 820px;
+  margin: 0 auto 14px;
+}
+
+.bib-title{
+  margin: 0;
+}
+
+.copy-btn{
+  background: var(--blue);
   color: white;
-  margin: 0 0 18px;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.copy-btn:hover{
+  background: var(--blue-light);
 }
 
-.bib-box {
-  background: #e6e8ed;
+.bib-box{
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 14px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   max-width: 820px;
   margin: 0 auto;
   text-align: left;
   overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
+.bib-box pre{ margin: 0; }
 
-.bib-box pre {
-  margin: 0;
-  white-space: pre;
+.btn-ghost{
+  background: white;
+  color: var(--blue);
+  border: 1px solid rgba(31,60,136,0.25);
+}
+.btn-ghost:hover{
+  background: rgba(31,60,136,0.08);
 }
