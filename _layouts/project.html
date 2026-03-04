@@ -1,0 +1,45 @@
+<div class="hero">
+  <h1>{{ page.project_short_title }}</h1>
+  <div class="meta">
+    <div><strong>Paper title:</strong> {{ page.paper_title }}</div>
+    <div><strong>Venue:</strong> {{ page.venue }}</div>
+    <div><strong>Authors:</strong> {{ page.authors }}</div>
+  </div>
+</div>
+
+<div class="card btnrow">
+  {% if page.paper_url %}<a href="{{ page.paper_url }}">Paper</a>{% endif %}
+  {% if page.code_url %}<a href="{{ page.code_url }}">Code (GitHub)</a>{% endif %}
+  {% if page.video_url %}<a href="{{ page.video_url }}">Video</a>{% endif %}
+</div>
+
+<h2>Abstract</h2>
+<p>{{ page.abstract }}</p>
+
+<h2>Video</h2>
+<div class="card">
+  {% if page.video_embed %}
+    <iframe width="100%" height="420" src="{{ page.video_embed }}"
+      title="Project video" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  {% elsif page.video_mp4 %}
+    <video controls width="100%">
+      <source src="{{ page.video_mp4 }}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  {% else %}
+    <p class="small">Add a video embed link or an MP4 link.</p>
+  {% endif %}
+</div>
+
+<h2>Citation</h2>
+<p class="small">
+  If you use this work, please cite it.<sup><a href="#footnote1">1</a></sup>
+</p>
+
+<pre><code>{{ page.bibtex }}</code></pre>
+
+<p id="footnote1" class="small">
+  1. This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice.
+</p>
