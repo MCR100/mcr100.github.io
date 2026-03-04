@@ -1,0 +1,97 @@
+<div class="paper-page">
+
+  <h1 class="paper-title">{{ page.paper_title }}</h1>
+
+  {% if page.authors_list %}
+    <div class="authors">
+      {% for a in page.authors_list %}
+        {% if a.url %}
+          <a class="author" href="{{ a.url }}">{{ a.name }}</a>{% if forloop.last == false %}<span class="sep">,</span>{% endif %}
+        {% else %}
+          <span class="author">{{ a.name }}</span>{% if forloop.last == false %}<span class="sep">,</span>{% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="authors">{{ page.authors }}</div>
+  {% endif %}
+
+  <div class="affil">
+    <div>{{ page.lab }}</div>
+    <div>{{ page.venue }}</div>
+  </div>
+
+  <div class="btnrow center">
+    {% if page.code_url %}
+      <a class="btn" href="{{ page.code_url }}" aria-label="GitHub">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64
+            -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18
+            1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56
+            .82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21
+            .15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+        </span>
+        <span>GitHub</span>
+      </a>
+    {% endif %}
+
+    {% if page.paper_url %}
+      <a class="btn" href="{{ page.paper_url }}" aria-label="arXiv">
+        <span class="badge">arXiv</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="section center">
+    <button class="linkbtn" id="openAbstract">Abstract</button>
+  </div>
+
+  <div class="video-wrap">
+    {% if page.video_embed %}
+      <iframe class="video" src="{{ page.video_embed }}" title="Project video" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {% elsif page.video_mp4 %}
+      <div class="video-square">
+        <video class="video-el" controls>
+          <source src="{{ page.video_mp4 }}" type="video/mp4" />
+        </video>
+      </div>
+    {% endif %}
+  </div>
+
+  <h2 class="center">BibTeX</h2>
+  <pre class="bib"><code>{{ page.bibtex }}</code></pre>
+
+  <div id="abstractModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="absTitle">
+      <div class="modal-head">
+        <div id="absTitle" class="modal-title">Abstract</div>
+        <button class="modal-x" id="closeAbstract" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <p>{{ page.abstract }}</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById("openAbstract");
+      const modal = document.getElementById("abstractModal");
+      const closeBtn = document.getElementById("closeAbstract");
+
+      function openModal() { modal.classList.add("show"); modal.setAttribute("aria-hidden", "false"); }
+      function closeModal() { modal.classList.remove("show"); modal.setAttribute("aria-hidden", "true"); }
+
+      if (openBtn && modal) openBtn.addEventListener("click", openModal);
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+      if (modal) modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+    })();
+  </script>
+
+</div>
