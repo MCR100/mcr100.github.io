@@ -128,7 +128,7 @@ body {
 .btn:hover,
 .btn-ghost:hover,
 .copy-btn:hover {
-  background: var(--blue-light);
+  background: var(#111);
 }
 
 .btn svg {
