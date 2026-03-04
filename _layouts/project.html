@@ -48,9 +48,7 @@ layout: default
         <span class="badge">arXiv</span>
       </a>
     {% endif %}
-  </div>
 
-  <div class="section center">
     <button class="btn btn-ghost" id="openAbstract" type="button">Abstract</button>
   </div>
 
@@ -62,7 +60,8 @@ layout: default
     </div>
   </div>
 
-  <div class="bib-section">
+  <footer class="bib-footer">
+  <div class="bib-footer-inner">
     <div class="bib-head">
       <h2 class="bib-title">BibTeX</h2>
       <button class="copy-btn" id="copyBib" type="button">Copy</button>
@@ -72,8 +71,9 @@ layout: default
       <pre id="bibText"><code>{{ page.bibtex }}</code></pre>
     </div>
   </div>
+</footer>
 
-  <script>
+<script>
   (function () {
     const btn = document.getElementById("copyBib");
     const pre = document.getElementById("bibText");
@@ -89,8 +89,8 @@ layout: default
       } catch (e) {
         btn.innerText = "Copy failed";
         setTimeout(() => (btn.innerText = "Copy"), 900);
-        }
-      });
+      }
+    });
     })();
   </script>
 
