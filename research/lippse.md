@@ -4,7 +4,7 @@ title: LiPPSe
 permalink: /research/lippse/
 
 project_short_title: "LiPPSe: LiDAR based Probe Pose Seeding for Teleoperated Echocardiography"
-paper_title: "Finding an Initial Probe Pose in Teleoperated Robotic Echocardiography<br>via 2D LiDAR Based 3D Reconstruction"
+paper_title: "Finding an Initial Probe Pose in Teleoperated Robotic Echocardiography via 2D LiDAR Based 3D Reconstruction"
 venue: "ICRA 2026 (Accepted)"
 lab: "<span class='red'>I</span>ntelligent <span class='red'>R</span>obotics <span class='red'>L</span>ab - <span class='red'>S</span>winburne"
 
